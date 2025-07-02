@@ -405,6 +405,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7533011460117308539, guid: 4aedbe0b159d1da4784ad049cc03d231, type: 3}
   spawnRateMin: 0.5
   spawnRateMax: 3
+  spawnClip: {fileID: 8300000, guid: 03915242eb36e8144a8705e3fe17f1bd, type: 3}
 --- !u!65 &272038305
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1100,6 +1101,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7533011460117308539, guid: 4aedbe0b159d1da4784ad049cc03d231, type: 3}
   spawnRateMin: 0.5
   spawnRateMax: 3
+  spawnClip: {fileID: 8300000, guid: 03915242eb36e8144a8705e3fe17f1bd, type: 3}
 --- !u!65 &1115743926
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1784,6 +1786,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7533011460117308539, guid: 4aedbe0b159d1da4784ad049cc03d231, type: 3}
   spawnRateMin: 0.5
   spawnRateMax: 3
+  spawnClip: {fileID: 8300000, guid: 03915242eb36e8144a8705e3fe17f1bd, type: 3}
 --- !u!1 &1658071270
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,6 +1822,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7533011460117308539, guid: 4aedbe0b159d1da4784ad049cc03d231, type: 3}
   spawnRateMin: 0.5
   spawnRateMax: 3
+  spawnClip: {fileID: 8300000, guid: 03915242eb36e8144a8705e3fe17f1bd, type: 3}
 --- !u!65 &1658071272
 BoxCollider:
   m_ObjectHideFlags: 0

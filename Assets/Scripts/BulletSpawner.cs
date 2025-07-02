@@ -10,11 +10,15 @@ public class BulletSpawner : MonoBehaviour
     private float spawnRate;
     private float timeAfterSpawn;
 
+    private AudioSource spawnSound;
+    public AudioClip spawnClip;
     void Start()
     {
         timeAfterSpawn = 0f;
         spawnRate = Random.Range(spawnRateMin, spawnRateMax);
         target = FindFirstObjectByType<PlayerController>().transform;
+        spawnSound = GetComponent<AudioSource>();
+
     }
 
     void Update()
@@ -24,6 +28,7 @@ public class BulletSpawner : MonoBehaviour
 
         if (timeAfterSpawn >= spawnRate)
         {
+            spawnSound.PlayOneShot(spawnClip);
             timeAfterSpawn = 0f;
 
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
