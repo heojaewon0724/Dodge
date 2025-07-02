@@ -21,20 +21,22 @@ public class BulletSpawner : MonoBehaviour
 
     }
 
-    void Update()
-    {
-        timeAfterSpawn += Time.deltaTime;
-        Debug.Log("Time.deltaTime: " + Time.deltaTime);
+   void Update()
+{
+    timeAfterSpawn += Time.deltaTime;
 
-        if (timeAfterSpawn >= spawnRate)
+    if (timeAfterSpawn >= spawnRate)
+    {
+        if (spawnSound != null && spawnClip != null)
         {
             spawnSound.PlayOneShot(spawnClip);
-            timeAfterSpawn = 0f;
-
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-
-            bullet.transform.LookAt(target);
-            spawnRate = Random.Range(spawnRateMin, spawnRateMax);
         }
+        timeAfterSpawn = 0f;
+
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+
+        bullet.transform.LookAt(target);
+        spawnRate = Random.Range(spawnRateMin, spawnRateMax);
     }
+}
 }
