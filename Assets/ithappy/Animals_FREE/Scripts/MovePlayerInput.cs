@@ -46,16 +46,18 @@ namespace Controller
             SetInput();
         }
 
-        public void GatherInput()
-        {
-            m_Axis = new Vector2(Input.GetAxis(m_HorizontalAxis), Input.GetAxis(m_VerticalAxis));
-            m_IsRun = Input.GetKey(m_RunKey);
-            m_IsJump = Input.GetButton(m_JumpButton);
+       public void GatherInput()
+{
+    m_Axis = new Vector2(Input.GetAxis(m_HorizontalAxis), Input.GetAxis(m_VerticalAxis));
+    m_IsRun = Input.GetKey(m_RunKey);
+    m_IsJump = Input.GetButton(m_JumpButton);
 
-            m_Target = (m_Camera == null) ? Vector3.zero : m_Camera.Target;
-            m_MouseDelta = new Vector2(Input.GetAxis(m_MouseX), Input.GetAxis(m_MouseY));
-            m_Scroll = Input.GetAxis(m_MouseScroll);
-        }
+    // 임시로 카메라 없이 앞으로 이동하도록
+    m_Target = transform.position + transform.forward * 10f;
+
+    m_MouseDelta = new Vector2(Input.GetAxis(m_MouseX), Input.GetAxis(m_MouseY));
+    m_Scroll = Input.GetAxis(m_MouseScroll);
+}
 
         public void BindMover(CreatureMover mover)
         {

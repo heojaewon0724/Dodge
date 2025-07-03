@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+<<<<<<< HEAD
         //수평과 수직 축 입력 값을 감지하여 저장
         float xinput = Input.GetAxis("Horizontal");
         Debug.Log("xinput: " + xinput);
@@ -41,6 +42,34 @@ public class PlayerController : MonoBehaviour
 
         gameManager.EndGame();
 
+=======
+        float xInput = Input.GetAxis("Horizontal");
+        Debug.Log("xInput: " + xInput);
+        float yInput = Input.GetAxis("Vertical");
+        Debug.Log("yInput: " + yInput);
+
+        float xSpeed = xInput * speed;
+        float ySpeed = yInput * speed;
+
+        Vector3 newVelocity = new Vector3(xSpeed, 0f, ySpeed);
+        playerRigidbody.linearVelocity = newVelocity;
+        if (Input.GetKey(KeyCode.UpArrow) == true)
+        {
+            playerRigidbody.AddForce(0f, 0f, speed);
+        }
+        if (Input.GetKey(KeyCode.DownArrow) == true)
+        {
+            playerRigidbody.AddForce(0f, 0f, -speed);
+        }
+        if (Input.GetKey(KeyCode.LeftArrow) == true)
+        {
+            playerRigidbody.AddForce(-speed, 0f, 0f);
+        }
+        if (Input.GetKey(KeyCode.RightArrow) == true)
+        {
+            playerRigidbody.AddForce(speed, 0f, 0f);
+        }
+>>>>>>> dev
     }
 }
 
