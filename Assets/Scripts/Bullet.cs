@@ -25,6 +25,10 @@ public class Bullet : MonoBehaviour
                 playerController.Die(); // Assuming TakeDamage is a method in PlayerController
             }
         }
+        if (other.tag == "Wall")
+        {
+            Destroy(gameObject); // Destroy the bullet on collision with a wall
+        }
         // Update is called once per frame
     }
     

@@ -1,44 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-
 
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRigidbody;
+    private Animator animator; // 추가
     public float speed = 8f;
 
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>(); // 추가
     }
-
 
     void Update()
     {
-        //수평과 수직 축 입력 값을 감지하여 저장
         float xinput = Input.GetAxis("Horizontal");
-        Debug.Log("xinput: " + xinput);
         float zinput = Input.GetAxis("Vertical");
-        Debug.Log("zinput: " + zinput);
 
-        //실제 이동 속도를 입력 값과 이동 속력을 통해 결정
         float xSpeed = xinput * speed;
         float zSpeed = zinput * speed;
 
-        Vector3 newVelocity = new Vector3(xSpeed, 0f, zSpeed);
-
+        Vector3 newVelocity = new Vector3(xSpeed, playerRigidbody.linearVelocity.y, zSpeed);
         playerRigidbody.linearVelocity = newVelocity;
 
+        // 이동 중이면 walk 애니메이션 실행
+// 이동 중이면 walk 애니메이션 실행
+bool isMoving = Mathf.Abs(xinput) > 0.01f || Mathf.Abs(zinput) > 0.01f;
+animator.SetBool("isWalk", isMoving); // Animator에 isWalk 파라미터가 있어야 함
     }
+
     public void Die()
     {
         gameObject.SetActive(false);
         GameManager gameManager = FindAnyObjectByType<GameManager>();
-
         gameManager.EndGame();
-
     }
 }
-
